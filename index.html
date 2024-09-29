@@ -50,6 +50,9 @@
       <input type="text" id="nome" placeholder="Nome" required>
       <input type="email" id="email" placeholder="Email" required>
       <input type="text" id="telefone" placeholder="Telefone" required>
+      <input type="date" id="dataInicioTeste" placeholder="Data Início Teste" required>
+      <input type="date" id="dataFimTeste" placeholder="Data Fim Teste" required>
+      <input type="text" id="rmktEnviado" placeholder="Rmkt Enviado" required>
       <button type="submit">Enviar</button>
     </form>
   </div>
@@ -61,11 +64,17 @@
       const nome = document.getElementById('nome').value;
       const email = document.getElementById('email').value;
       const telefone = document.getElementById('telefone').value;
+      const dataInicioTeste = document.getElementById('dataInicioTeste').value;
+      const dataFimTeste = document.getElementById('dataFimTeste').value;
+      const rmktEnviado = document.getElementById('rmktEnviado').value;
 
       const data = {
         nome: nome,
         email: email,
-        telefone: telefone
+        telefone: telefone,
+        dataInicioTeste: dataInicioTeste,
+        dataFimTeste: dataFimTeste,
+        rmktEnviado: rmktEnviado
       };
 
       fetch('https://hook.us2.make.com/kvf8x3oybac6mhaxxnw8tpi2lhl39whx', {
@@ -73,17 +82,4 @@
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert('Dados enviados com sucesso!');
-      })
-      .catch((error) => {
-        console.error('Erro ao enviar os dados:', error);
-      });
-    });
-  </script>
-
-</body>
-</html>
+        body: JSON
